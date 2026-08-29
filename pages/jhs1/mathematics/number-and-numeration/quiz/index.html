@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Number and Numeration Quiz | StudyPlus GH</title>
+
+    <link rel="stylesheet" href="../../../../../style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            StudyPlus GH
+        </div>
+
+        <ul class="nav-links">
+
+    <li>
+        <a href="../../../../../index.html">
+            Home
+        </a>
+    </li>
+
+    <li>
+        <a href="../index.html">
+            Lesson
+        </a>
+    </li>
+
+    <li>
+        <a href="../practice.html">
+            Practice
+        </a>
+    </li>
+
+    <li>
+        <a href="index.html">
+            Quiz
+        </a>
+    </li>
+
+    <li>
+        <a href="#">
+            Premium
+        </a>
+    </li>
+
+</ul>
+
+
+    </nav>
+
+
+    <!-- Quiz Header -->
+    <section class="hero">
+
+        <h1>
+            Number and <span>Numeration Quiz</span>
+        </h1>
+
+        <p>
+            JHS 1 Mathematics
+        </p>
+
+    </section>
+
+
+    <!-- Quiz -->
+    <section class="section">
+
+        <form id="quizForm">
+
+            <!-- Question 1 -->
+            <div class="card">
+
+                <h3>Question 1</h3>
+
+                <p>
+                    Which of the following is a natural number?
+                </p>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q1" value="A">
+                    A. -3
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q1" value="B">
+                    B. 0
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q1" value="C">
+                    C. 5
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q1" value="D">
+                    D. -8
+                </label>
+
+            </div>
+
+            <br>
+
+
+            <!-- Question 2 -->
+            <div class="card">
+
+                <h3>Question 2</h3>
+
+                <p>
+                    Which of the following is an even number?
+                </p>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q2" value="A">
+                    A. 7
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q2" value="B">
+                    B. 11
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q2" value="C">
+                    C. 15
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q2" value="D">
+                    D. 18
+                </label>
+
+            </div>
+
+            <br>
+
+
+            <!-- Question 3 -->
+            <div class="card">
+
+                <h3>Question 3</h3>
+
+                <p>
+                    What is the place value of 4 in 5,432?
+                </p>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q3" value="A">
+                    A. Ones
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q3" value="B">
+                    B. Tens
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q3" value="C">
+                    C. Hundreds
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q3" value="D">
+                    D. Thousands
+                </label>
+
+            </div>
+
+            <br>
+
+
+            <!-- Question 4 -->
+            <div class="card">
+
+                <h3>Question 4</h3>
+
+                <p>
+                    Which of the following is an odd number?
+                </p>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q4" value="A">
+                    A. 12
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q4" value="B">
+                    B. 20
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q4" value="C">
+                    C. 25
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q4" value="D">
+                    D. 30
+                </label>
+
+            </div>
+
+            <br>
+
+
+            <!-- Question 5 -->
+            <div class="card">
+
+                <h3>Question 5</h3>
+
+                <p>
+                    Which number comes immediately after 999?
+                </p>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q5" value="A">
+                    A. 998
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q5" value="B">
+                    B. 1000
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q5" value="C">
+                    C. 1001
+                </label>
+
+                <br>
+
+                <label>
+                    <input type="radio" name="q5" value="D">
+                    D. 9990
+                </label>
+
+            </div>
+
+            <br><br>
+
+            <button type="submit" class="btn">
+                Submit Quiz
+            </button>
+
+        </form>
+
+
+        <!-- Result -->
+        <div id="result" class="card" style="display: none; margin-top: 30px;">
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 StudyPlus GH. Learn. Practice. Succeed.
+        </p>
+
+    </footer>
+
+
+    <!-- Quiz JavaScript -->
+    <script>
+
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const answers = {
+                q1: "C",
+                q2: "D",
+                q3: "C",
+                q4: "C",
+                q5: "B"
+            };
+
+            let score = 0;
+
+            for (let question in answers) {
+
+                const selected = document.querySelector(
+                    `input[name="${question}"]:checked`
+                );
+
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+
+            }
+
+            const total = Object.keys(answers).length;
+
+            const percentage = (score / total) * 100;
+
+            let message;
+
+            if (percentage >= 80) {
+                message = "Excellent work! 🎉";
+            } else if (percentage >= 50) {
+                message = "Good effort! Keep practicing. 👍";
+            } else {
+                message = "Keep studying and try again. 💪";
+            }
+
+            const result = document.getElementById("result");
+
+            result.style.display = "block";
+
+            result.innerHTML = `
+                <h2>Your Result</h2>
+
+                <br>
+
+                <h3>${score} / ${total}</h3>
+
+                <br>
+
+                <p>Score: ${percentage}%</p>
+
+                <br>
+
+                <p>${message}</p>
+
+                <br>
+
+                <button onclick="location.reload()" class="btn">
+                    Try Again
+                </button>
+            `;
+
+            result.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

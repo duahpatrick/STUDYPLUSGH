@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment and Development - JHS 2 Social Studies</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        :root {
+            --primary-color: #047857;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+        }
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 2rem;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .jhs-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+        .lesson-description {
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #ccfbf1, #cffafe);
+            border-left: 4px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .quick-check {
+            background-color: #f0fdf4;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .quick-check h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .check-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .check-item:hover {
+            background-color: #d1fae5;
+        }
+        .check-item.active {
+            background-color: var(--success-color);
+            color: white;
+        }
+        .answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #cffafe;
+            border-left: 3px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+        .answer.show {
+            display: block;
+        }
+        .links-section {
+            background-color: #f3f4f6;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .links-section a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .links-section a:hover {
+            background-color: var(--secondary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .key-terms {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .key-term {
+            margin-bottom: 1rem;
+        }
+        .key-term strong {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../../../index.html">Home</a>
+            <a href="../../index.html">JHS 2</a>
+            <a href="../index.html">Social Studies</a>
+        </nav>
+        <div class="lesson-header">
+            <span class="jhs-tag">JHS 2 SOCIAL STUDIES</span>
+            <h1>Environment and Development</h1>
+            <p class="lesson-description">Understanding sustainable development, environmental challenges, and how to balance economic growth with environmental protection in Ghana.</p>
+        </div>
+    </header>
+
+    <main class="lesson-content">
+        <div class="summary-box">
+            <h3>🎯 Key Idea</h3>
+            <p>Sustainable development means meeting present needs without compromising the ability of future generations to meet their needs. Ghana must balance economic development with environmental protection to ensure prosperity and a healthy natural environment.</p>
+        </div>
+
+        <section class="content-section">
+            <h2>Understanding Environment and Development</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>What is the Environment?</h3>
+                    <p>The environment includes all living things (plants, animals) and non-living things (air, water, soil, minerals) in our surroundings. It provides resources for food, shelter, energy, and all life processes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3>What is Development?</h3>
+                    <p>Development means improving living standards, building infrastructure, creating jobs, and increasing economic output. It includes better education, healthcare, transportation, and technology access for people.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Sustainable Development</h3>
+                    <p>Meeting current needs while protecting the environment for future generations. It balances economic growth with environmental protection, ensuring resources aren't depleted and ecosystems remain healthy.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏭</div>
+                    <h3>The Development Dilemma</h3>
+                    <p>Industries provide jobs and income but may pollute air and water. Farming feeds people but can degrade soil. Mining brings wealth but leaves environmental damage. Finding balance is Ghana's challenge.</p>
+                </div>
+            </div>
+
+            <div class="key-terms">
+                <div class="key-term">
+                    <strong>Natural Resources:</strong> Materials from the environment used by people (forests, minerals, water, soil, energy sources).
+                </div>
+                <div class="key-term">
+                    <strong>Renewable Resources:</strong> Resources that can be replenished naturally (forests, crops, water, solar energy).
+                </div>
+                <div class="key-term">
+                    <strong>Non-renewable Resources:</strong> Resources that don't renew quickly (fossil fuels, metals, diamonds).
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Ghana's Natural Resources and Their Use</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🌳</div>
+                    <h3>Forests</h3>
+                    <p>Ghana's forests provide timber, medicinal plants, and wildlife habitat. They regulate climate and rainfall. However, illegal logging and land clearing for agriculture threaten forest survival and biodiversity.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⛏️</div>
+                    <h3>Minerals</h3>
+                    <p>Gold is Ghana's most valuable mineral export, earning significant foreign exchange. Also mined: diamonds, bauxite, manganese, and limestone. Mining provides jobs but causes environmental degradation if not managed properly.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💧</div>
+                    <h3>Water Resources</h3>
+                    <p>Ghana has rivers (Volta, Ankobra, Tano), Lake Volta, and coastal waters. Water is essential for drinking, agriculture, fishing, hydroelectric power, and transportation. Pollution and overuse threaten water quality.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌾</div>
+                    <h3>Agricultural Land</h3>
+                    <p>Fertile soils support farming of cocoa, cassava, maize, rice, and vegetables. Agriculture employs millions and feeds the nation. Soil erosion, climate change, and poor farming practices reduce productivity.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🐠</div>
+                    <h3>Marine Resources</h3>
+                    <p>Ghana's fishing industry provides protein and employment. Fish stocks are threatened by overfishing, illegal fishing, and marine pollution from oil drilling and plastic waste in the Atlantic Ocean.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">☀️</div>
+                    <h3>Renewable Energy</h3>
+                    <p>Ghana has potential for solar and wind energy. Hydroelectric power from Lake Volta provides significant electricity. Developing renewable energy reduces dependence on fossil fuels and reduces emissions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Environmental Challenges in Ghana</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">💨</div>
+                    <h3>Air Pollution</h3>
+                    <p>Vehicle emissions, industrial pollution, and burning of waste create air pollution in cities like Accra and Kumasi. Poor air quality causes respiratory diseases and health problems, especially for children and elderly people.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔥</div>
+                    <h3>Climate Change</h3>
+                    <p>Rising temperatures, irregular rainfall patterns, and increased droughts affect agriculture and water supply. Flooding also occurs in some areas. Ghana must adapt farming practices and build climate resilience.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗑️</div>
+                    <h3>Waste Management</h3>
+                    <p>Cities generate enormous waste daily. Inadequate disposal systems lead to illegal dumping, contaminating soil and water. Plastic waste especially harms marine life. Recycling programs need expansion.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌊</div>
+                    <h3>Water Pollution</h3>
+                    <p>Industrial waste, agricultural runoff, and untreated sewage contaminate rivers and groundwater. Coastal pollution from oil drilling and tourism damages marine ecosystems. Polluted water threatens health and fisheries.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📉</div>
+                    <h3>Deforestation</h3>
+                    <p>Illegal logging, farming expansion, and urban development destroy forests. Forest loss reduces biodiversity, worsens climate change, and eliminates habitats for wildlife. Reforestation efforts lag behind cutting rates.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Mining Impact</h3>
+                    <p>Gold mining creates huge pits, uses toxic chemicals, and pollutes water. Communities near mines suffer health problems and land degradation. Better environmental regulations and oversight are needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Promoting Sustainable Development in Ghana</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>Reforestation Programs</h3>
+                    <p>Planting trees restores forests, creates jobs, and fights climate change. Community-based reforestation, government initiatives, and private sector involvement help recover lost forest areas across Ghana.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">♻️</div>
+                    <h3>Waste Reduction</h3>
+                    <p>Reduce, reuse, and recycle practices minimize waste. Communities can compost organic waste, use reusable bags instead of plastic, and support recycling businesses. Individual choices multiply across millions of people.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>Clean Energy</h3>
+                    <p>Solar panels, wind turbines, and improved hydropower reduce dependence on fossil fuels. Government incentives support renewable energy projects. Clean energy creates jobs and reduces air pollution.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌾</div>
+                    <h3>Sustainable Agriculture</h3>
+                    <p>Organic farming, crop rotation, and water conservation improve soil health and reduce chemical pollution. Supporting small-scale farmers with training helps them adopt sustainable practices.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Environmental Education</h3>
+                    <p>Teaching students about conservation builds future environmental stewards. Schools and communities can run programs on waste management, conservation, and climate change awareness.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Strong Environmental Laws</h3>
+                    <p>Enforcing regulations on mining, logging, and pollution holds polluters accountable. Ghana has environmental laws; better enforcement and penalties for violations are needed to protect natural resources.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quick-check">
+            <h3>⚡ Quick Check Your Understanding</h3>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q1: What is sustainable development and why is it important?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Sustainable development means meeting present needs without compromising the ability of future generations to meet theirs. It's important because it balances economic growth with environmental protection, ensuring both prosperity and a healthy planet for future people.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q2: Name three major natural resources in Ghana and their uses.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Gold (export, income), Forests (timber, habitat, rainfall regulation), Water (agriculture, drinking, hydropower), Agricultural land (food production), Fish (protein, employment).
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q3: Describe two environmental challenges facing Ghana.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Any two of: Deforestation from illegal logging, Climate change causing droughts, Air pollution in cities, Water pollution from industrial waste, Waste management problems, Mining pollution, Overfishing.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q4: What is the difference between renewable and non-renewable resources?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Renewable resources can be replenished naturally (forests, crops, water, solar energy). Non-renewable resources don't renew quickly and become depleted with use (fossil fuels, metals, diamonds). We should use non-renewable resources wisely.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q5: How can young Ghanaians contribute to sustainable development?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> By: reducing waste and recycling, using less energy, supporting reforestation efforts, learning about environmental issues, using sustainable transport, avoiding plastic, supporting organic farming, and advocating for environmental protection.
+                </div>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h3>Extend Your Learning</h3>
+            <a href="#">Practice Questions</a>
+            <a href="#">Quiz Yourself</a>
+            <a href="#">Download Study Guide</a>
+            <a href="#">Watch Video Lessons</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 StudyPlusGH - JHS 2 Learning Platform | Environment and Development</p>
+        <p>Empowering Ghanaian Students with Quality Education</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.answer');
+            answer.classList.toggle('show');
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

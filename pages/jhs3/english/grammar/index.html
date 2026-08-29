@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .answer { display: none; color: #166534; font-weight: bold; margin-top: 14px; }
+        .interactive { border-left: 5px solid #2563eb; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; }
+        .check-form input { padding: 12px; width: 200px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .feedback { font-weight: bold; margin-top: 14px; }
+        .mini-list { margin-left: 20px; line-height: 1.8; color: #374151; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../../index.html">JHS 3</a></li>
+            <li><a href="../../english/index.html">English</a></li>
+            <li><a href="../../../../coming-soon.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Grammar <span>Revision</span></h1>
+        <p>Understand sentence building, word classes and proper usage.</p>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>1. Nouns</h2>
+            <p>A noun names a person, place, animal or thing.</p>
+            <ul class="mini-list">
+                <li>Person: teacher, doctor</li>
+                <li>Place: school, market</li>
+                <li>Thing: book, desk</li>
+                <li>Animal: goat, bird</li>
+            </ul>
+        </div><br><br>
+
+        <div class="card">
+            <h2>2. Verbs</h2>
+            <p>A verb shows action or state of being.</p>
+            <h3>Examples: run, sing, is, are, write, learn.</h3>
+            <p>In the sentence “The pupils write neatly,” the verb is <strong>write</strong>.</p>
+        </div><br><br>
+
+        <div class="card">
+            <h2>3. Adjectives</h2>
+            <p>An adjective describes a noun.</p>
+            <h3>Examples: tall, bright, careful, handsome.</h3>
+            <p>“The bright student answered correctly.” Here, <strong>bright</strong> describes the student.</p>
+        </div><br><br>
+
+        <div class="card">
+            <h2>4. Tense</h2>
+            <p>Tense tells us when an action happens.</p>
+            <ul class="mini-list">
+                <li>Present: I read every evening.</li>
+                <li>Past: I read yesterday.</li>
+                <li>Future: I will read tomorrow.</li>
+            </ul>
+        </div><br><br>
+
+        <div class="card interactive">
+            <h2>Worked Example</h2>
+            <p>Complete the sentence: “The children ______ the football.”</p>
+            <button type="button" class="btn" onclick="showWork()">Show Answer</button>
+            <p id="work" class="answer">The correct verb is “kick.” So the sentence is: “The children kick the football.”</p>
+        </div><br><br>
+
+        <div class="card interactive">
+            <h2>Quick Check</h2>
+            <p>Choose the correct sentence.</p>
+            <form class="check-form" onsubmit="check(event)">
+                <input type="text" aria-label="Sentence answer" placeholder="Type full sentence">
+                <button class="btn" type="submit">Check Answer</button>
+            </form>
+            <p id="feedback" class="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Practice Questions</h2>
+        <div class="card">
+            <ol class="mini-list">
+                <li>Identify the noun in: “The teacher gave the book to the learner.”</li>
+                <li>Which word is the verb in: “The bird sings beautifully.”</li>
+                <li>Write the past tense of “go.”</li>
+                <li>Use an adjective in a sentence of your own.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section">
+        <a href="../../index.html" class="btn">Back to JHS 3 English</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p>
+    </footer>
+
+    <script>
+        function showWork() {
+            const item = document.getElementById('work');
+            item.style.display = item.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function check(event) {
+            event.preventDefault();
+            const input = event.target.querySelector('input');
+            const feedback = document.getElementById('feedback');
+            const answer = input.value.trim().toLowerCase();
+            const correct = answer === 'the children kick the football.' || answer === 'the children kick the football';
+            feedback.textContent = correct ? 'Correct! That sentence is grammatically correct.' : 'Try again. The verb should match the subject.';
+            feedback.style.color = correct ? '#166534' : '#b91c1c';
+        }
+    </script>
+</body>
+</html>

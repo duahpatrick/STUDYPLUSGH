@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .answer { display: none; color: #166534; font-weight: bold; margin-top: 14px; }
+        .interactive { border-left: 5px solid #2563eb; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; }
+        .check-form input { padding: 12px; width: 170px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .feedback { font-weight: bold; margin-top: 14px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../index.html">Mathematics</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="quiz/index.html">Quiz</a></li>
+            <li><a href="#">Premium</a></li>
+        </ul>
+    </nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 1 Mathematics</span>
+                <h1><span>Coordinates</span></h1>
+                <p>Locate points and describe movement on a coordinate grid.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>Every point on the grid is identified by an ordered pair, and moving across and up or down changes its position.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card">
+            <h2>The Coordinate Plane</h2>
+            <p>A coordinate grid has a horizontal x-axis and a vertical y-axis. They meet at the origin, (0, 0).</p>
+            <p>The axes divide the plane into four quadrants. Positive x moves to the right and positive y moves upward.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Ordered Pairs</h2>
+            <p>A point is written as (x, y). Read across first to find x, then move up or down to find y.</p>
+            <div class="example-box">Point A(3, 2): move 3 units right and 2 units up.</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Plotting and Reading Points</h2>
+            <p>To plot (-2, 4), begin at the origin, move 2 units left because x is negative, then 4 units up because y is positive.</p>
+            <p>A point such as (5, -1) is 5 right and 1 down.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Distance and Symmetry</h2>
+            <p>When points share the same horizontal line, count the difference between their x-coordinates.</p>
+            <p>Reflection in the x-axis changes (x, y) to (x, -y). Reflection in the y-axis changes it to (-x, y).</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Movement on a Grid</h2>
+            <p>Translations move a shape without turning it. “3 right and 2 up” means add (3, 2) to every point.</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Worked Example</h2>
+            <p>Point B is (-1, 3). What is its reflection in the x-axis?</p>
+            <button type="button" class="btn" onclick="showWork()">Show Working</button>
+            <p id="work" class="answer">The x-coordinate stays -1 and the y-coordinate changes sign: B' = (-1, -3).</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Quick Check</h2>
+            <p>Write the ordered pair for 4 units left and 2 units down from the origin.</p>
+            <form class="check-form" onsubmit="check(event)">
+                <input type="text" aria-label="Ordered pair" placeholder="Example: (1, 2)">
+                <button class="btn" type="submit">Check Answer</button>
+            </form>
+            <p id="feedback" class="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Test Your Understanding</h2>
+        <div class="card">
+            <p>Practise reading, plotting and transforming points.</p>
+            <div class="hero-actions lesson-actions">
+                <a href="practice.html" class="btn primary-btn">Practice Questions</a>
+                <a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <a href="../index.html" class="btn">← Back to Mathematics</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p>
+    </footer>
+
+    <script>
+        function showWork() {
+            const item = document.getElementById('work');
+            item.style.display = item.style.display === 'block' ? 'none' : 'block';
+        }
+        function check(event) {
+            event.preventDefault();
+            const answer = event.target.querySelector('input').value.replace(/\s/g, '');
+            const correct = answer === '(-4,-2)' || answer === '-4,-2';
+            const item = document.getElementById('feedback');
+            item.textContent = correct ? 'Correct. Left is negative x and down is negative y.' : 'Try again. Use a negative x and a negative y.';
+            item.style.color = correct ? '#166534' : '#b91c1c';
+        }
+    </script>
+</body>
+</html>
+

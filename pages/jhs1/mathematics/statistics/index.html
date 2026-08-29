@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Statistics | StudyPlus GH</title><link rel="stylesheet" href="../../../../style.css"><style>.answer{display:none;color:#166534;font-weight:bold;margin-top:14px}.interactive{border-left:5px solid #2563eb}.check-form{display:flex;gap:10px;flex-wrap:wrap}.check-form input{padding:12px;width:130px;border:1px solid #cbd5e1;border-radius:6px}.feedback{font-weight:bold;margin-top:14px}</style></head>
+<body><nav class="navbar"><div class="logo">StudyPlus GH</div><ul class="nav-links"><li><a href="../../../../index.html">Home</a></li><li><a href="../index.html">Mathematics</a></li><li><a href="practice.html">Practice</a></li><li><a href="quiz/index.html">Quiz</a></li><li><a href="#">Premium</a></li></ul></nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 1 Mathematics</span>
+                <h1>Introduction to <span>Statistics</span></h1>
+                <p>Collect, organize, represent and interpret data from everyday life.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>Statistics helps us make sense of information by organizing and comparing data carefully.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card"><h2>Data and Variables</h2><p>Data are facts or information collected for a purpose. Qualitative data describe qualities, such as eye colour. Quantitative data use numbers, such as the number of books.</p><p>A population is the whole group being studied; a sample is a smaller group selected from it.</p></div>
+
+        <div class="lesson-card"><h2>Tables and Tally Charts</h2><p>A tally chart records how often values occur. Group tallies in fives to count quickly. A frequency is the number of times a value occurs.</p><div class="example-box">Example: 2, 3, 2, 4, 3, 2</div><p>Frequencies: 2 occurs 3 times, 3 occurs 2 times and 4 occurs 1 time.</p></div>
+
+        <div class="lesson-card"><h2>Mean, Median, Mode and Range</h2><p>Mean = total of values / number of values. Median is the middle value after arranging data in order. Mode is the value that occurs most often. Range = highest value - lowest value.</p><p>For an even number of values, the median is the mean of the two middle values.</p></div>
+
+        <div class="lesson-card"><h2>Charts and Graphs</h2><p>Bar charts compare separate categories using bars with equal widths. A pictograph uses symbols, and its key tells what each symbol represents. A line graph shows how a quantity changes, often over time.</p><p>Label both axes and give the graph a title.</p></div>
+
+        <div class="lesson-card interactive"><h2>Worked Example</h2><p>Find the mean and range of 4, 6, 7, 8 and 10.</p><button type="button" class="btn" onclick="showWork()">Show Working</button><p id="work" class="answer">Total = 35, so mean = 35 / 5 = 7. Range = 10 - 4 = 6.</p></div>
+
+        <div class="lesson-card interactive"><h2>Quick Check</h2><p>Find the mode of 3, 5, 3, 6, 4, 3.</p><form class="check-form" onsubmit="check(event)"><input type="number" aria-label="Mode"><button class="btn" type="submit">Check Answer</button></form><p id="feedback" class="feedback"></p></div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Test Your Understanding</h2><div class="card"><p>Use the practice set and quiz to check your data skills.</p><div class="hero-actions lesson-actions"><a href="practice.html" class="btn primary-btn">Practice Questions</a><a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a></div></div></section>
+    <section class="section"><a href="../index.html" class="btn">← Back to Mathematics</a></section>
+    <footer class="footer"><p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p></footer><script>function showWork(){const item=document.getElementById('work');item.style.display=item.style.display==='block'?'none':'block'}function check(event){event.preventDefault();const correct=event.target.querySelector('input').value==='3';const item=document.getElementById('feedback');item.textContent=correct?'Correct. 3 occurs most often.':'Try again. Count how often each value occurs.';item.style.color=correct?'#166534':'#b91c1c'}</script></body></html>
+

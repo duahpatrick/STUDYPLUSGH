@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .answer { display: none; color: #166534; font-weight: bold; margin-top: 14px; }
+        .interactive { border-left: 5px solid #2563eb; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; }
+        .check-form input { padding: 12px; width: 130px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .feedback { font-weight: bold; margin-top: 14px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../index.html">Mathematics</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="quiz/index.html">Quiz</a></li>
+            <li><a href="#">Premium</a></li>
+        </ul>
+    </nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 1 Mathematics</span>
+                <h1>Introduction to <span>Algebra</span></h1>
+                <p>Use letters, expressions and equations to describe number patterns and solve unknown values.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>Algebra lets us work with unknown values using letters, patterns, and rules instead of only known numbers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card">
+            <h2>Variables and Constants</h2>
+            <p>A variable is a letter or symbol representing an unknown or changing value. A constant has a fixed value.</p>
+            <p>In 3x + 5, x is the variable, 3 is the coefficient and 5 is the constant.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Expressions and Like Terms</h2>
+            <p>An algebraic expression contains numbers, variables and operations, but no equals sign.</p>
+            <div class="example-box">3x + 2x = 5x</div>
+            <p>Terms are like terms when they have the same variable and power. Unlike terms, such as 3x and 2y, cannot be combined.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Substitution</h2>
+            <p>Substitution means replacing a variable with a known value. Use brackets when substituting a negative number.</p>
+            <div class="example-box">If x = 4, then 2x + 3 = 2(4) + 3 = 11.</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Solving Simple Equations</h2>
+            <p>An equation has an equals sign. Keep it balanced by doing the same operation to both sides.</p>
+            <div class="rule-box">
+                <p>x + 7 = 12 → x = 5</p>
+                <p>3x = 18 → x = 6</p>
+            </div>
+            <p>Check your answer by putting it back into the original equation.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Patterns and Formulae</h2>
+            <p>A formula is a rule written with symbols. In P = 2l + 2w, substitute the known length and width, then calculate.</p>
+            <p>Number patterns can also be described using a term-to-term rule.</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Worked Example</h2>
+            <p>Solve 2x + 5 = 13.</p>
+            <button type="button" class="btn" onclick="showWork()">Show Working</button>
+            <p id="work" class="answer">Subtract 5: 2x = 8. Divide by 2: x = 4. Check: 2(4) + 5 = 13.</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Quick Check</h2>
+            <p>If y = 6, find 3y - 2.</p>
+            <form class="check-form" onsubmit="check(event)">
+                <input type="number" aria-label="Answer">
+                <button class="btn" type="submit">Check Answer</button>
+            </form>
+            <p id="feedback" class="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Test Your Understanding</h2>
+        <div class="card">
+            <p>Practise simplifying, substituting and solving equations.</p>
+            <div class="hero-actions lesson-actions">
+                <a href="practice.html" class="btn primary-btn">Practice Questions</a>
+                <a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <a href="../index.html" class="btn">← Back to Mathematics</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p>
+    </footer>
+
+    <script>
+        function showWork() {
+            const item = document.getElementById('work');
+            item.style.display = item.style.display === 'block' ? 'none' : 'block';
+        }
+        function check(event) {
+            event.preventDefault();
+            const correct = event.target.querySelector('input').value === '16';
+            const item = document.getElementById('feedback');
+            item.textContent = correct ? 'Correct. 3 x 6 - 2 = 16.' : 'Try again. Substitute 6 for y first.';
+            item.style.color = correct ? '#166534' : '#b91c1c';
+        }
+    </script>
+</body>
+</html>
+

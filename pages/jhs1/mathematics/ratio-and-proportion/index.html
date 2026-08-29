@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratio and Proportion | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .interactive { border-left: 5px solid #2563eb; }
+        .answer { display: none; margin-top: 16px; color: #166534; font-weight: bold; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .check-form input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; width: 130px; }
+        .feedback { margin-top: 14px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../index.html">Mathematics</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="quiz/index.html">Quiz</a></li>
+            <li><a href="#">Premium</a></li>
+        </ul>
+    </nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 1 Mathematics</span>
+                <h1>Ratio and <span>Proportion</span></h1>
+                <p>Understand comparisons, equivalent ratios and real-life problems step by step.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>A ratio compares quantities, and proportion tells us when two comparisons are equal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card">
+            <h2>Meaning of Ratio</h2>
+            <p>A ratio compares two or more quantities of the same kind. It tells us how much of one quantity there is compared with another.</p>
+            <div class="example-box">Example: 3 red balls and 2 blue balls → 3:2</div>
+            <p>The order matters: blue balls to red balls is 2:3. Ratios can also be written as 3 to 2 or 3/2.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Simplifying Ratios</h2>
+            <p>To simplify a ratio, divide every part by their greatest common factor.</p>
+            <div class="example-box">12:18 = 2:3</div>
+            <p>Both 12 and 18 are divided by 6. Never divide only one part of a ratio.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Equivalent Ratios</h2>
+            <p>Equivalent ratios describe the same comparison. Multiplying or dividing every part by the same non-zero number keeps the ratio equivalent.</p>
+            <div class="example-box">2:5 = 4:10 = 6:15</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Sharing in a Given Ratio</h2>
+            <p>To share an amount in the ratio 2:3, first add the parts: 2 + 3 = 5. Divide the total by 5 to find one part, then multiply by 2 and 3.</p>
+            <div class="example-box">Share 40 cedis in the ratio 2:3 → 16 cedis and 24 cedis</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Proportion</h2>
+            <p>A proportion states that two ratios are equal. In 2:3 = 8:12, both ratios simplify to the same comparison.</p>
+            <p>To find an unknown in a proportion, use cross multiplication.</p>
+            <div class="example-box">3/5 = x/20 → x = 12</div>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Worked Example: Unit Rate</h2>
+            <p>A taxi travels 180 kilometres in 3 hours. What is its average distance per hour?</p>
+            <button type="button" class="btn" onclick="toggleAnswer('exampleAnswer', this)">Show Working</button>
+            <p id="exampleAnswer" class="answer">Average rate = distance / time = 180 / 3 = 60 kilometres per hour.</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Quick Check</h2>
+            <p>Simplify the ratio 15:25.</p>
+            <form class="check-form" onsubmit="checkAnswer(event, 'quickAnswer', '3:5')">
+                <input type="text" aria-label="Your simplified ratio" placeholder="Example: 2:3">
+                <button type="submit" class="btn">Check Answer</button>
+            </form>
+            <p id="quickAnswer" class="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Practice What You Learned</h2>
+        <div class="card">
+            <p>Use the detailed practice set and then try the scored quiz.</p>
+            <div class="hero-actions lesson-actions">
+                <a href="practice.html" class="btn primary-btn">Practice Questions</a>
+                <a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a>
+            </div>
+        </div>
+    </section>
+    <section class="section"><a href="../index.html" class="btn">← Back to Mathematics</a></section>
+    <footer class="footer"><p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p></footer>
+
+    <script>
+        function toggleAnswer(answerId, button) {
+            const answer = document.getElementById(answerId);
+            const isVisible = answer.style.display === "block";
+            answer.style.display = isVisible ? "none" : "block";
+            button.textContent = isVisible ? "Show Working" : "Hide Working";
+        }
+
+        function checkAnswer(event, feedbackId, expected) {
+            event.preventDefault();
+            const answer = event.target.querySelector("input").value.trim().replace(/\s/g, "");
+            const feedback = document.getElementById(feedbackId);
+            feedback.textContent = answer === expected ? "Correct. 15:25 simplifies to 3:5." : "Not quite. Divide both parts by 5.";
+            feedback.style.color = answer === expected ? "#166534" : "#b91c1c";
+        }
+    </script>
+</body>
+</html>

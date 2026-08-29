@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family and Relationships - JHS 2 Social Studies</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --secondary-color: #991b1b;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+        }
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 2rem;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .jhs-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+        .lesson-description {
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #fee2e2, #fef3c7);
+            border-left: 4px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .quick-check {
+            background-color: #fff5f5;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .quick-check h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .check-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .check-item:hover {
+            background-color: #fee2e2;
+        }
+        .check-item.active {
+            background-color: var(--success-color);
+            color: white;
+        }
+        .answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #fef3c7;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+        .answer.show {
+            display: block;
+        }
+        .links-section {
+            background-color: #f3f4f6;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .links-section a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .links-section a:hover {
+            background-color: var(--secondary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .key-terms {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .key-term {
+            margin-bottom: 1rem;
+        }
+        .key-term strong {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../../../index.html">Home</a>
+            <a href="../../index.html">JHS 2</a>
+            <a href="../index.html">Social Studies</a>
+        </nav>
+        <div class="lesson-header">
+            <span class="jhs-tag">JHS 2 SOCIAL STUDIES</span>
+            <h1>Family and Relationships</h1>
+            <p class="lesson-description">Understanding family structures, relationships, roles, and how to build healthy, supportive family connections in Ghanaian society.</p>
+        </div>
+    </header>
+
+    <main class="lesson-content">
+        <div class="summary-box">
+            <h3>🎯 Key Idea</h3>
+            <p>The family is the foundation of society. Strong family relationships based on love, respect, communication, and shared values create healthy individuals and communities. Understanding different family structures and relationships helps us appreciate diversity and build supportive connections.</p>
+        </div>
+
+        <section class="content-section">
+            <h2>Understanding Family</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">👨‍👩‍👧‍👦</div>
+                    <h3>What is a Family?</h3>
+                    <p>A family is a group of people related by blood, marriage, or adoption who share a home and support each other. Families provide love, security, care, education, and guidance necessary for healthy development.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏘️</div>
+                    <h3>Types of Families</h3>
+                    <p>Nuclear family (parents and children), Extended family (includes grandparents, aunts, uncles, cousins), Single-parent family, Blended family (step-relations). In Ghana, extended families are very important culturally.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3>Family Functions</h3>
+                    <p>Families provide: reproduction and care for children, economic security, emotional support, education and socialization, cultural transmission, and guidance for developing values and skills.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Family Bond</h3>
+                    <p>Family bonds are connections of love, loyalty, and interdependence among family members. These bonds motivate people to support each other through challenges, celebrations, and everyday life.</p>
+                </div>
+            </div>
+
+            <div class="key-terms">
+                <div class="key-term">
+                    <strong>Kinship:</strong> The relationship between people based on blood relation, marriage, or social connection.
+                </div>
+                <div class="key-term">
+                    <strong>Nuclear Family:</strong> A family consisting of parents and their children only.
+                </div>
+                <div class="key-term">
+                    <strong>Extended Family:</strong> A family that includes relatives beyond parents and children (grandparents, cousins, etc.).
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Family Roles and Responsibilities</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">👨‍🦱</div>
+                    <h3>Parents' Role</h3>
+                    <p>Parents provide food, shelter, safety, education, and emotional care. They teach values, discipline children, model good behavior, and prepare children for adulthood. Good parenting requires patience, love, and consistency.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👧</div>
+                    <h3>Children's Responsibilities</h3>
+                    <p>Children should respect parents and elders, obey family rules, contribute to household chores, study hard, and behave responsibly. As they mature, responsibilities increase. Young adults support aging parents.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👵</div>
+                    <h3>Elders' Contribution</h3>
+                    <p>Grandparents and elderly relatives provide wisdom, guidance, childcare, and emotional support. They transmit cultural knowledge and family history. In Ghanaian culture, respecting and caring for elders is a fundamental value.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Economic Roles</h3>
+                    <p>Family members contribute economically by working and earning income. Traditionally, men were breadwinners, but now women also work. Sharing income supports family needs and strengthens interdependence.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Educational Role</h3>
+                    <p>Families teach life skills, values, and culture. Parents encourage school attendance and academic achievement. Education is highly valued in Ghanaian families as a path to better opportunities.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❤️</div>
+                    <h3>Emotional Support</h3>
+                    <p>Families provide comfort during difficulties, celebrate successes, and offer companionship. Emotional security from family relationships helps people handle stress, build confidence, and develop healthy relationships.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Building Healthy Relationships</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Communication</h3>
+                    <p>Open, honest communication is key to healthy relationships. Family members should listen to each other, express feelings respectfully, and discuss problems calmly. Good communication prevents misunderstandings and builds trust.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤲</div>
+                    <h3>Respect and Dignity</h3>
+                    <p>Respecting each family member's feelings, opinions, and boundaries strengthens relationships. Everyone deserves dignity regardless of age, gender, or status. Respect creates safety and belonging in families.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎁</div>
+                    <h3>Spending Time Together</h3>
+                    <p>Family activities, meals together, and shared experiences bond family members. Quality time shows love and creates positive memories. In Ghana, family gatherings and celebrations are cherished traditions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Fair Rules and Consequences</h3>
+                    <p>Clear, fair family rules help members understand expectations. Consistent consequences for breaking rules maintain order without harsh punishment. Children thrive when they know boundaries and feel safe.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Conflict Resolution</h3>
+                    <p>All relationships have disagreements. Healthy families address conflicts respectfully, listen to all perspectives, and seek solutions that work for everyone. Conflict resolution skills strengthen relationships.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💪</div>
+                    <h3>Mutual Support</h3>
+                    <p>Family members support each other through challenges and celebrate successes together. This interdependence creates strength and resilience. Supporting others makes everyone feel valued and appreciated.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Challenges to Family Relationships</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">💔</div>
+                    <h3>Divorce and Separation</h3>
+                    <p>When parents separate, children need continued love and support from both. Divorce is painful but sometimes necessary. Children should understand it's not their fault and both parents still love them.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Economic Stress</h3>
+                    <p>Financial difficulties create family stress. Unemployment, poverty, and economic hardship can strain relationships. Strong communication and mutual support help families weather economic challenges.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Technology and Distance</h3>
+                    <p>Migration for work, education, or better opportunities separates families. Technology helps maintain connections but can't replace in-person relationships. Balancing technology use strengthens family bonds.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">😟</div>
+                    <h3>Mental Health Issues</h3>
+                    <p>Depression, anxiety, and other mental health issues affect family relationships. Open discussion and professional help are important. Families should create safe spaces for discussing emotional struggles.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚫</div>
+                    <h3>Abuse and Neglect</h3>
+                    <p>Physical, emotional, or sexual abuse harms children permanently. Neglect of children's needs impacts development. Children in abusive situations should seek help from trusted adults, schools, or authorities.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>Generational Conflicts</h3>
+                    <p>Different views between parents and teenagers cause conflicts. Balancing traditional values with modern ideas requires patience and understanding. Intergenerational dialogue strengthens families.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quick-check">
+            <h3>⚡ Quick Check Your Understanding</h3>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q1: What are the main functions of a family?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Families provide: reproduction and care for children, economic security through shared resources, emotional support and love, education and socialization, cultural and value transmission, and guidance for healthy development.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q2: Explain the difference between nuclear and extended families.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> A nuclear family consists of parents and their children only. An extended family includes relatives beyond this (grandparents, aunts, uncles, cousins). In Ghana, extended families are very culturally important and common.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q3: Name three important elements of healthy family relationships.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Any three from: Communication, Respect for each other, Quality time together, Fair rules and consequences, Conflict resolution, Mutual support, Love and trust, Financial security.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q4: What are children's responsibilities in a family?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Respect parents and elders, obey family rules, contribute to household tasks, study hard and attend school, behave responsibly, follow guidance, and eventually support aging parents when they mature.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q5: How can families manage conflicts healthily?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Through open communication, listening respectfully to all perspectives, keeping calm, focusing on the problem not the person, seeking solutions that work for everyone, and sometimes asking for help from elders or counselors.
+                </div>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h3>Extend Your Learning</h3>
+            <a href="#">Practice Questions</a>
+            <a href="#">Quiz Yourself</a>
+            <a href="#">Download Study Guide</a>
+            <a href="#">Watch Video Lessons</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 StudyPlusGH - JHS 2 Learning Platform | Family and Relationships</p>
+        <p>Empowering Ghanaian Students with Quality Education</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.answer');
+            answer.classList.toggle('show');
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

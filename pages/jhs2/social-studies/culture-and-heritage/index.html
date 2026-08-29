@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture and Heritage - JHS 2 Social Studies</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        :root {
+            --primary-color: #059669;
+            --secondary-color: #dc2626;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+        }
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 2rem;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .jhs-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+        .lesson-description {
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #d1fae5, #fef3c7);
+            border-left: 4px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .quick-check {
+            background-color: #f0fdf4;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .quick-check h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .check-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .check-item:hover {
+            background-color: #d1fae5;
+        }
+        .check-item.active {
+            background-color: var(--success-color);
+            color: white;
+        }
+        .answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #fef3c7;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+        .answer.show {
+            display: block;
+        }
+        .links-section {
+            background-color: #f3f4f6;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .links-section a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .links-section a:hover {
+            background-color: var(--secondary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .key-terms {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .key-term {
+            margin-bottom: 1rem;
+        }
+        .key-term strong {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../../../index.html">Home</a>
+            <a href="../../index.html">JHS 2</a>
+            <a href="../index.html">Social Studies</a>
+        </nav>
+        <div class="lesson-header">
+            <span class="jhs-tag">JHS 2 SOCIAL STUDIES</span>
+            <h1>Culture and Heritage</h1>
+            <p class="lesson-description">Exploring Ghanaian traditions, customs, beliefs, and the importance of preserving cultural heritage for future generations.</p>
+        </div>
+    </header>
+
+    <main class="lesson-content">
+        <div class="summary-box">
+            <h3>🎯 Key Idea</h3>
+            <p>Culture encompasses the beliefs, values, customs, and practices of a people. Ghana's rich cultural heritage, including diverse ethnic groups, traditions, and historical sites, is a source of national pride and identity that must be preserved and celebrated.</p>
+        </div>
+
+        <section class="content-section">
+            <h2>Understanding Culture</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🎭</div>
+                    <h3>What is Culture?</h3>
+                    <p>Culture is the shared beliefs, values, customs, traditions, and behaviors of a group of people. It includes language, religion, food, clothing, art, music, and social practices passed down through generations.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Elements of Culture</h3>
+                    <p>Material culture (tools, buildings, art) and non-material culture (beliefs, values, language). Together they shape how a society functions and how people interact with each other.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Cultural Diversity</h3>
+                    <p>Different groups have different cultures based on geography, history, and experiences. Ghana is home to over 60 ethnic groups including Akan, Ga, Ewe, Dagbani, and many others, each with unique traditions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Heritage</h3>
+                    <p>Heritage refers to cultural traditions, historical artifacts, and practices inherited from ancestors. It connects us to our past and helps define our identity and sense of belonging.</p>
+                </div>
+            </div>
+
+            <div class="key-terms">
+                <div class="key-term">
+                    <strong>Tradition:</strong> Beliefs and practices passed down from generation to generation within a culture.
+                </div>
+                <div class="key-term">
+                    <strong>Custom:</strong> A habitual practice or way of behaving that is widely accepted within a culture.
+                </div>
+                <div class="key-term">
+                    <strong>Ethnic Group:</strong> A community sharing a common ancestry, language, culture, and traditions.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Ghana's Ethnic Groups and Their Cultures</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">👑</div>
+                    <h3>Akan People</h3>
+                    <p>The largest ethnic group in Ghana, including Asante, Fante, and Akuapem. Known for kente cloth weaving, the Golden Stool (symbol of authority), festivals like Aboakyir, and rich oral traditions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏙️</div>
+                    <h3>Ga People</h3>
+                    <p>Primarily found in Accra and surrounding areas. Famous for Homowo festival celebrating successful harvest, unique architectural styles, and seafaring traditions. The Ga language is widely spoken in Accra.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎵</div>
+                    <h3>Ewe People</h3>
+                    <p>Located mainly in the Volta Region. Known for distinctive drumming and dance traditions (kpanlogo, agbadza), colorful weaving, and the Aboakyir festival. Their music has influenced Ghanaian popular culture.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌾</div>
+                    <h3>Dagbani People</h3>
+                    <p>Found in Northern Ghana. Known for traditional leadership systems, the Damba and Bugum festivals, distinctive architecture with round mud houses, and agricultural practices adapted to the savanna climate.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🥁</div>
+                    <h3>Other Groups</h3>
+                    <p>Ghana also includes Mole-Dagbani, Gur-speaking peoples, Nzema, and many others. Each group contributes unique music, art forms, languages, and traditions to Ghana's cultural tapestry.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Cultural Unity</h3>
+                    <p>Despite ethnic differences, Ghanaians share common values like respect for elders, communal living, hospitality, and Ubuntu philosophy. National symbols like the flag and anthem unite all groups.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Important Ghanaian Traditions and Customs</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🎊</div>
+                    <h3>Festivals</h3>
+                    <p>Aboakyir (Fante Asafo warfare tradition), Homowo (Ga thanksgiving), Odwira (Akan year-end festival), Damba (Northern celebration). Festivals strengthen community bonds and preserve cultural practices.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Naming Ceremonies</h3>
+                    <p>An important tradition where newborns are formally named by family elders. Children often receive names based on the day of the week they were born or honoring ancestors, connecting them to their heritage.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💍</div>
+                    <h3>Marriage Customs</h3>
+                    <p>Traditional marriage practices include bride price (betrothal gifts), family involvement in partner selection, and elaborate ceremonies. Many Ghanaians practice both traditional and legal marriage ceremonies.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍽️</div>
+                    <h3>Food and Cuisine</h3>
+                    <p>Fufu, jollof rice, waakye, and kelewele are traditional foods. Dining customs emphasize communal eating and respect for elders (first to eat), strengthening family bonds and social values.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👗</div>
+                    <h3>Traditional Attire</h3>
+                    <p>Kente cloth (woven Akan textile), adire (tie-dye), and kaba (women's dress) are iconic. Traditional dress is worn during ceremonies, celebrations, and formal occasions as a sign of cultural pride.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛐</div>
+                    <h3>Respect for Elders</h3>
+                    <p>A core value in Ghanaian culture. Young people greet elders respectfully, seek their advice, and care for them in old age. This practice strengthens intergenerational bonds and preserves wisdom.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Preserving Cultural Heritage</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Documentation</h3>
+                    <p>Recording stories, songs, languages, and practices prevents cultural loss. Museums, archives, and digital platforms preserve artifacts and knowledge for future generations to learn and appreciate.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Education</h3>
+                    <p>Teaching cultural practices and history in schools ensures young people understand their heritage. Schools teach local languages, history, and traditional arts alongside modern subjects.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Historical Sites</h3>
+                    <p>Protecting places like Cape Coast Castle, Elmina Castle, and Fort St. Jago preserves Ghana's historical memory. These sites educate about colonial history and the Trans-Atlantic slave trade.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Arts and Crafts</h3>
+                    <p>Supporting traditional weavers, drummers, storytellers, and artisans keeps cultural practices alive. Tourism and cultural markets provide economic incentives for preserving traditional skills.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>UNESCO Recognition</h3>
+                    <p>Ghana's cultural heritage receives international protection status. Sites like Kakum National Park and traditional festivals gain recognition that encourages preservation and sustainable cultural tourism.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👨‍👩‍👧</div>
+                    <h3>Family Participation</h3>
+                    <p>Families passing traditions to children through participation in ceremonies, teaching language, and storytelling keeps culture alive at grassroots level. Family gatherings are opportunities for cultural transmission.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quick-check">
+            <h3>⚡ Quick Check Your Understanding</h3>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q1: What is the difference between culture and heritage?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Culture is the set of beliefs, values, customs, and practices of a group of people. Heritage is the cultural traditions, historical artifacts, and practices inherited from ancestors. Heritage is what is passed down, while culture is how people live.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q2: Name three major ethnic groups in Ghana and one unique aspect of each.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Akan (kente cloth and Golden Stool), Ga (Homowo festival and Accra settlement), Ewe (drumming and dance traditions like agbadza), Dagbani (Damba festival and round mud houses).
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q3: Why is it important to preserve cultural heritage?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Preserving heritage connects us to our past, maintains identity, strengthens community bonds, educates future generations, and honors our ancestors. It also promotes cultural tourism and economic development.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q4: Describe one important Ghanaian custom and its significance.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Naming ceremonies (welcoming newborns and formally naming them), Festivals (celebrating harvest and unity), Marriage customs (family involvement), or Respect for elders (transmitting wisdom). Each strengthens social bonds and cultural identity.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q5: How can young Ghanaians help preserve their cultural heritage?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> By learning their local language and history, participating in traditional ceremonies and festivals, learning traditional crafts and arts, listening to elders' stories, supporting cultural events, and passing these practices to others.
+                </div>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h3>Extend Your Learning</h3>
+            <a href="#">Practice Questions</a>
+            <a href="#">Quiz Yourself</a>
+            <a href="#">Download Study Guide</a>
+            <a href="#">Watch Video Lessons</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 StudyPlusGH - JHS 2 Learning Platform | Culture and Heritage</p>
+        <p>Empowering Ghanaian Students with Quality Education</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.answer');
+            answer.classList.toggle('show');
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

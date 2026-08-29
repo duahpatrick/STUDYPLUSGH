@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizenship and Governance - JHS 2 Social Studies</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #dc2626;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+        }
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 2rem;
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        .lesson-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .jhs-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0;
+        }
+        .lesson-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+            border-left: 4px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+        }
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .lesson-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .quick-check {
+            background-color: #f0f9ff;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .quick-check h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .check-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .check-item:hover {
+            background-color: #e0e7ff;
+        }
+        .check-item.active {
+            background-color: var(--success-color);
+            color: white;
+        }
+        .answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #fef3c7;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+        .answer.show {
+            display: block;
+        }
+        .links-section {
+            background-color: #f3f4f6;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .links-section a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .links-section a:hover {
+            background-color: var(--secondary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .key-terms {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        .key-term {
+            margin-bottom: 1rem;
+        }
+        .key-term strong {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .lesson-header h1 {
+                font-size: 1.8rem;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../../../index.html">Home</a>
+            <a href="../../index.html">JHS 2</a>
+            <a href="../index.html">Social Studies</a>
+        </nav>
+        <div class="lesson-header">
+            <span class="jhs-tag">JHS 2 SOCIAL STUDIES</span>
+            <h1>Citizenship and Governance</h1>
+            <p class="lesson-description">Understanding the principles of citizenship, rights and responsibilities, and how government systems function in democratic societies.</p>
+        </div>
+    </header>
+
+    <main class="lesson-content">
+        <div class="summary-box">
+            <h3>🎯 Key Idea</h3>
+            <p>Citizenship is a legal and social status that comes with both rights and responsibilities. Good governance ensures that governments serve the needs of all citizens and protect their fundamental freedoms.</p>
+        </div>
+
+        <section class="content-section">
+            <h2>What is Citizenship?</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Definition</h3>
+                    <p>Citizenship is the status of being a legal member of a nation-state. It grants individuals specific rights and imposes certain obligations to the state and fellow citizens.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Types of Citizenship</h3>
+                    <p>Natural citizenship (by birth in a country), Naturalized citizenship (through application and meeting requirements), and Dual citizenship (holding citizenship in two countries).</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3>How to Acquire Citizenship</h3>
+                    <p>In Ghana, citizenship can be acquired through: birth to Ghanaian parents, birth on Ghanaian soil, adoption, descent, registration, and naturalization after living in the country for a specified period.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Rights of Citizens</h3>
+                    <p>Civil rights (freedom of speech, religion), Political rights (voting, holding office), and Social rights (education, healthcare, employment). These are protected by the Constitution of Ghana.</p>
+                </div>
+            </div>
+
+            <div class="key-terms">
+                <div class="key-term">
+                    <strong>Constitution:</strong> The supreme law of a country that outlines the structure of government and protects citizens' rights.
+                </div>
+                <div class="key-term">
+                    <strong>Democracy:</strong> A system of government where power is held by the people through voting and representation.
+                </div>
+                <div class="key-term">
+                    <strong>Sovereignty:</strong> The authority of a state to govern itself and make decisions without interference from other countries.
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Responsibilities of Citizens</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <h3>Obey the Law</h3>
+                    <p>All citizens must follow the laws of their country. This includes traffic laws, property laws, and criminal laws that protect everyone's safety and rights.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗳️</div>
+                    <h3>Participate in Governance</h3>
+                    <p>Citizens should vote in elections, serve on juries, and participate in local governance. Active participation strengthens democracy and ensures representatives reflect citizens' needs.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Pay Taxes</h3>
+                    <p>Taxes fund public services like schools, hospitals, roads, and defense. Paying taxes is a civic duty that supports national development and citizen welfare.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Defend the Country</h3>
+                    <p>Citizens have the responsibility to protect their nation. This includes military service where applicable and supporting national security efforts.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Respect Others' Rights</h3>
+                    <p>Every citizen must respect the rights of others. This includes not discriminating based on race, religion, gender, or other factors, and treating all people with dignity.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Environmental Care</h3>
+                    <p>Citizens must help protect the environment for future generations. This includes not littering, conserving water and energy, and supporting sustainable practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Types of Governance</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Democracy</h3>
+                    <p>Government by the people through elected representatives. Citizens have freedom to vote, speak, and participate. Ghana operates as a constitutional democracy with separation of powers.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👑</div>
+                    <h3>Monarchy</h3>
+                    <p>Government ruled by a king or queen. In Ghana, traditional monarchy coexists with democratic governance, with chiefs providing cultural and community leadership.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Dictatorship</h3>
+                    <p>Absolute power held by one person or group without democratic processes. Citizens have limited rights and freedoms. Ghana has moved away from this system toward democracy.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Federal System</h3>
+                    <p>Power is divided between central government and regional/local governments. Ghana has regions and municipalities that handle local affairs while the central government handles national issues.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Ghana's Governance Structure</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Executive Branch</h3>
+                    <p>Led by the President who is elected by citizens. The President enforces laws, appoints ministers, and represents Ghana internationally. The President is both Head of State and Head of Government.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📜</div>
+                    <h3>Legislative Branch</h3>
+                    <p>The Parliament of Ghana, consisting of 275 members elected by voters in their constituencies. Parliament makes laws, approves budgets, and oversees the executive branch.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h3>Judicial Branch</h3>
+                    <p>Headed by the Chief Justice and the Supreme Court. The judiciary interprets laws, tries cases, and ensures justice is served fairly. Courts protect citizens' rights and enforce the Constitution.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quick-check">
+            <h3>⚡ Quick Check Your Understanding</h3>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q1: What are the main requirements for citizenship in Ghana?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Citizenship can be acquired through birth to Ghanaian parents, birth on Ghanaian soil, adoption, descent, registration, or naturalization after meeting specific requirements and residing in Ghana for the required period.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q2: Name three responsibilities of citizens.</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Any three from: obeying laws, paying taxes, voting and participating in elections, defending the country, respecting others' rights, and caring for the environment.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q3: What are the three branches of Ghana's government?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> The Executive (President), Legislative (Parliament), and Judicial (Courts) branches. They check and balance each other's power.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q4: How does democracy protect citizens' rights?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> In a democracy, citizens can vote for leaders, participate in decision-making, speak freely, and enjoy constitutional protections. If rights are violated, citizens can seek justice through courts.
+                </div>
+            </div>
+            <div class="check-item" onclick="toggleAnswer(this)">
+                <strong>Q5: What is the difference between citizenship and nationality?</strong>
+                <div class="answer">
+                    <strong>Answer:</strong> Nationality refers to membership in a nation based on birthplace or heritage. Citizenship is a legal status that grants specific rights and responsibilities within a state's legal system.
+                </div>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h3>Extend Your Learning</h3>
+            <a href="#">Practice Questions</a>
+            <a href="#">Quiz Yourself</a>
+            <a href="#">Download Study Guide</a>
+            <a href="#">Watch Video Lessons</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 StudyPlusGH - JHS 2 Learning Platform | Citizenship and Governance</p>
+        <p>Empowering Ghanaian Students with Quality Education</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.answer');
+            answer.classList.toggle('show');
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

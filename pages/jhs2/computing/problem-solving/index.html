@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .answer { display: none; color: #166534; font-weight: bold; margin-top: 14px; }
+        .interactive { border-left: 5px solid #2563eb; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../index.html">Computing</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="quiz/index.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 2 Computing</span>
+                <h1>Problem <span>Solving</span></h1>
+                <p>Use logic, algorithms and step-by-step thinking to solve complex digital tasks.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>Breaking problems into smaller steps and following clear logic makes solutions work correctly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card">
+            <h2>Understanding the Problem</h2>
+            <p>Before solving, understand what you need to accomplish. Identify inputs (what you start with), outputs (what you need to produce), and constraints (limitations or rules).</p>
+            <div class="example-box">Problem: Create a program to sort students by grade. Input: list of student names and grades. Output: students arranged from highest to lowest grade. Constraint: alphabetical order if grades are equal.</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Decomposition: Breaking Problems Into Parts</h2>
+            <p>Large problems are easier to solve if broken into smaller pieces. Each piece should have a clear purpose and produce output that the next piece uses as input.</p>
+            <div class="example-box">Large problem: "Build a game." Smaller parts: create characters, define movement rules, set winning conditions, create menus.</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Algorithms and Flowcharts</h2>
+            <p>An algorithm is a sequence of clear steps to solve a problem. A flowchart shows these steps visually with shapes: rectangles for actions, diamonds for decisions, arrows showing flow.</p>
+            <p>Good algorithms are unambiguous, complete, efficient and tested.</p>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Debugging: Finding and Fixing Errors</h2>
+            <p>Debugging is systematic error-finding. Test your solution with different inputs. If results are wrong, trace through the steps to find where the logic fails. Make small changes and test again.</p>
+            <div class="example-box">If a sorting program produces the wrong order, check the comparison logic. Are you comparing correctly? Are you moving items correctly?</div>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Optimisation: Making Solutions Better</h2>
+            <p>After your solution works, make it faster, use less memory or be easier to understand. Sometimes a simpler approach works better than a complex one.</p>
+        </div>
+
+        <div class="lesson-card interactive">
+            <h2>Quick Check</h2>
+            <p>Why is breaking a problem into smaller parts helpful?</p>
+            <button type="button" class="btn" onclick="document.getElementById('answer').style.display='block'">Show Answer</button>
+            <p id="answer" class="answer">Smaller parts are easier to understand, solve and test. Each part can be worked on independently.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Test Your Understanding</h2>
+        <div class="card">
+            <p>Practice decomposition, creating algorithms, debugging and optimisation.</p>
+            <div class="hero-actions lesson-actions">
+                <a href="practice.html" class="btn primary-btn">Practice Questions</a>
+                <a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <a href="../index.html" class="btn">Back to Computing</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p>
+    </footer>
+</body>
+</html>

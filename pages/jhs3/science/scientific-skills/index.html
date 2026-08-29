@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Skills | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .answer { display: none; color: #166534; font-weight: bold; margin-top: 14px; }
+        .interactive { border-left: 5px solid #2563eb; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; }
+        .check-form input { padding: 12px; width: 180px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .feedback { font-weight: bold; margin-top: 14px; }
+        .mini-list { margin-left: 20px; line-height: 1.8; color: #374151; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../index.html">Home</a></li>
+            <li><a href="../../index.html">JHS 3</a></li>
+            <li><a href="../../science/index.html">Science</a></li>
+            <li><a href="../../../../coming-soon.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Scientific <span>Skills</span></h1>
+        <p>Observe carefully, investigate wisely and use evidence to explain what happens.</p>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>1. Observation</h2>
+            <p>Observation means using the senses to collect information. You may observe colour, shape, smell, texture, sound or movement.</p>
+            <h3>Example: “The leaf is green and smooth.”</h3>
+        </div><br><br>
+
+        <div class="card">
+            <h2>2. Inference</h2>
+            <p>An inference is a conclusion based on observations and prior knowledge.</p>
+            <h3>Example: If a plant is wilted and the soil is dry, we infer it needs water.</h3>
+        </div><br><br>
+
+        <div class="card">
+            <h2>3. Measurement</h2>
+            <p>Scientists measure length, mass, volume, time and temperature carefully using correct units.</p>
+            <ul class="mini-list">
+                <li>Length: centimetres (cm), metres (m)</li>
+                <li>Mass: grams (g), kilograms (kg)</li>
+                <li>Volume: millilitres (ml), litres (l)</li>
+            </ul>
+        </div><br><br>
+
+        <div class="card">
+            <h2>4. Experimentation</h2>
+            <p>An experiment tests a hypothesis. Good scientific work uses fair testing by keeping some conditions the same and changing only one variable at a time.</p>
+        </div><br><br>
+
+        <div class="card interactive">
+            <h2>Worked Example</h2>
+            <p>An experiment shows a plant with less sunlight grows shorter than one with more sunlight. What is the inference?</p>
+            <button type="button" class="btn" onclick="showWork()">Show Answer</button>
+            <p id="work" class="answer">The inference is that sunlight helps plants grow well.</p>
+        </div><br><br>
+
+        <div class="card interactive">
+            <h2>Quick Check</h2>
+            <p>Which is an observation: “The plant needs water” or “The plant is yellow and drooping”?</p>
+            <form class="check-form" onsubmit="check(event)">
+                <input type="text" aria-label="Observation answer" placeholder="Type your answer">
+                <button class="btn" type="submit">Check Answer</button>
+            </form>
+            <p id="feedback" class="feedback"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Practice Questions</h2>
+        <div class="card">
+            <ol class="mini-list">
+                <li>State one observation you can make about a ripe banana.</li>
+                <li>What is the difference between observation and inference?</li>
+                <li>Name one instrument used to measure temperature.</li>
+                <li>Why is it important to keep variables constant in an experiment?</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section">
+        <a href="../../index.html" class="btn">Back to JHS 3 Science</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p>
+    </footer>
+
+    <script>
+        function showWork() {
+            const item = document.getElementById('work');
+            item.style.display = item.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function check(event) {
+            event.preventDefault();
+            const input = event.target.querySelector('input');
+            const feedback = document.getElementById('feedback');
+            const answer = input.value.trim().toLowerCase();
+            const correct = answer.includes('the plant is yellow and drooping') || answer.includes('yellow and drooping');
+            feedback.textContent = correct ? 'Correct! That is an observation because it describes what you can see.' : 'Remember: an observation describes what you see or measure, not what you conclude.';
+            feedback.style.color = correct ? '#166534' : '#b91c1c';
+        }
+    </script>
+</body>
+</html>

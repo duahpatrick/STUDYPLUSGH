@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractions Quiz | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">StudyPlus GH</div>
+        <ul class="nav-links">
+            <li><a href="../../../../../index.html">Home</a></li>
+            <li><a href="../index.html">Lesson</a></li>
+            <li><a href="../practice.html">Practice</a></li>
+            <li><a href="index.html">Quiz</a></li>
+            <li><a href="#">Premium</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero"><h1>Fractions <span>Quiz</span></h1><p>JHS 1 Mathematics</p></section>
+
+    <section class="section">
+        <form id="quizForm">
+            <div class="card"><h3>Question 1</h3><p>What is the numerator in 4/9?</p><br><label><input type="radio" name="q1" value="A"> A. 4</label><br><label><input type="radio" name="q1" value="B"> B. 9</label><br><label><input type="radio" name="q1" value="C"> C. 13</label><br><label><input type="radio" name="q1" value="D"> D. 5</label></div><br>
+            <div class="card"><h3>Question 2</h3><p>Which fraction is equivalent to 1/2?</p><br><label><input type="radio" name="q2" value="A"> A. 2/3</label><br><label><input type="radio" name="q2" value="B"> B. 2/4</label><br><label><input type="radio" name="q2" value="C"> C. 3/5</label><br><label><input type="radio" name="q2" value="D"> D. 4/6</label></div><br>
+            <div class="card"><h3>Question 3</h3><p>Which is a proper fraction?</p><br><label><input type="radio" name="q3" value="A"> A. 7/4</label><br><label><input type="radio" name="q3" value="B"> B. 5/5</label><br><label><input type="radio" name="q3" value="C"> C. 3/8</label><br><label><input type="radio" name="q3" value="D"> D. 9/2</label></div><br>
+            <div class="card"><h3>Question 4</h3><p>Which fraction is greater?</p><br><label><input type="radio" name="q4" value="A"> A. 2/7</label><br><label><input type="radio" name="q4" value="B"> B. 5/7</label><br><label><input type="radio" name="q4" value="C"> C. 1/7</label><br><label><input type="radio" name="q4" value="D"> D. 3/7</label></div><br>
+            <div class="card"><h3>Question 5</h3><p>What is 1/4 + 1/4?</p><br><label><input type="radio" name="q5" value="A"> A. 1/8</label><br><label><input type="radio" name="q5" value="B"> B. 2/8</label><br><label><input type="radio" name="q5" value="C"> C. 1/2</label><br><label><input type="radio" name="q5" value="D"> D. 2/4</label></div><br><br>
+            <button type="submit" class="btn">Submit Quiz</button>
+        </form>
+        <div id="result" class="card" style="display: none; margin-top: 30px;"></div>
+    </section>
+
+    <footer class="footer"><p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p></footer>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const answers = { q1: "A", q2: "B", q3: "C", q4: "B", q5: "C" };
+            let score = 0;
+            for (const question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) score++;
+            }
+            const total = Object.keys(answers).length;
+            const percentage = (score / total) * 100;
+            const result = document.getElementById("result");
+            result.style.display = "block";
+            result.innerHTML = `<h2>Your Result</h2><br><h3>${score} / ${total}</h3><br><p>Score: ${percentage}%</p><br><button onclick="location.reload()" class="btn">Try Again</button>`;
+            result.scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry | StudyPlus GH</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <style>
+        .interactive { border-left: 5px solid #2563eb; }
+        .answer { display: none; margin-top: 16px; color: #166534; font-weight: bold; }
+        .check-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .check-form input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; width: 130px; }
+        .feedback { margin-top: 14px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="logo">StudyPlus GH</div><ul class="nav-links"><li><a href="../../../../index.html">Home</a></li><li><a href="../index.html">Mathematics</a></li><li><a href="practice.html">Practice</a></li><li><a href="quiz/index.html">Quiz</a></li><li><a href="#">Premium</a></li></ul></nav>
+
+    <section class="lesson-page-header">
+        <div class="lesson-header-inner">
+            <div>
+                <span class="lesson-tag">JHS 1 Mathematics</span>
+                <h1>JHS 1 <span>Geometry</span></h1>
+                <p>Explore lines, angles, shapes and their properties.</p>
+            </div>
+            <div class="lesson-summary">
+                <h3>Key idea</h3>
+                <p>Geometry helps us describe the size, shape, position and relationship of objects around us.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section lesson-shell">
+        <div class="lesson-card"><h2>Lines and Line Segments</h2><p>A line extends forever in both directions. A line segment has two endpoints and a fixed length. A ray has one endpoint and extends forever in one direction.</p><p>Parallel lines never meet, while perpendicular lines meet at a right angle of 90 degrees.</p></div>
+
+        <div class="lesson-card"><h2>Angles</h2><p>An angle is formed when two rays meet at a common endpoint called the vertex.</p><p>Acute angles are less than 90 degrees. A right angle is exactly 90 degrees. An obtuse angle is greater than 90 degrees but less than 180 degrees. A straight angle is 180 degrees.</p><div class="example-box">Angles on a straight line add up to 180 degrees.</div></div>
+
+        <div class="lesson-card"><h2>Triangles</h2><p>A triangle has three sides and three angles. The angles in every triangle add up to 180 degrees.</p><p>An equilateral triangle has three equal sides. An isosceles triangle has two equal sides. A scalene triangle has no equal sides.</p><div class="example-box">Missing angle = 180 - the sum of the two known angles.</div></div>
+
+        <div class="lesson-card"><h2>Quadrilaterals</h2><p>A quadrilateral has four sides and four angles. The angles in every quadrilateral add up to 360 degrees.</p><p>A square has four equal sides and four right angles. A rectangle has opposite sides equal and four right angles. A parallelogram has two pairs of parallel sides.</p></div>
+
+        <div class="lesson-card"><h2>Perimeter</h2><p>Perimeter is the distance around the outside of a shape. Add all the side lengths to find it.</p><p>For a rectangle, perimeter = 2 x (length + width). For a square, perimeter = 4 x side length.</p></div>
+
+        <div class="lesson-card"><h2>Symmetry</h2><p>A line of symmetry divides a shape into two matching halves. A square has four lines of symmetry, while a rectangle has two.</p></div>
+
+        <div class="lesson-card interactive"><h2>Worked Example: Rectangle</h2><p>A rectangle is 8 cm long and 5 cm wide. Find its perimeter.</p><button type="button" class="btn" onclick="toggleAnswer('exampleAnswer', this)">Show Working</button><p id="exampleAnswer" class="answer">Perimeter = 2 x (8 + 5) = 2 x 13 = 26 cm.</p></div>
+
+        <div class="lesson-card interactive"><h2>Quick Check</h2><p>A triangle has angles of 50 degrees and 60 degrees. What is the third angle?</p><form class="check-form" onsubmit="checkAnswer(event, 'quickAnswer', '70')"><input type="number" aria-label="Third angle" placeholder="Degrees"><button type="submit" class="btn">Check Answer</button></form><p id="quickAnswer" class="feedback"></p></div>
+    </section>
+
+    <section class="section"><h2 class="section-title">Test Your Understanding</h2><div class="card"><p>Review the examples, then complete the practice and quiz.</p><div class="hero-actions lesson-actions"><a href="practice.html" class="btn primary-btn">Practice Questions</a><a href="quiz/index.html" class="btn secondary-btn">Take Quiz</a></div></div></section>
+    <section class="section"><a href="../index.html" class="btn">← Back to Mathematics</a></section>
+    <footer class="footer"><p>© 2026 StudyPlus GH. Learn. Practice. Succeed.</p></footer>
+    <script>
+        function toggleAnswer(answerId, button) { const answer = document.getElementById(answerId); const isVisible = answer.style.display === "block"; answer.style.display = isVisible ? "none" : "block"; button.textContent = isVisible ? "Show Working" : "Hide Working"; }
+        function checkAnswer(event, feedbackId, expected) { event.preventDefault(); const answer = event.target.querySelector("input").value.trim(); const feedback = document.getElementById(feedbackId); feedback.textContent = answer === expected ? "Correct. The angles in a triangle add up to 180 degrees." : "Not quite. Subtract 50 and 60 from 180."; feedback.style.color = answer === expected ? "#166534" : "#b91c1c"; }
+    </script>
+</body>
+</html>
+
